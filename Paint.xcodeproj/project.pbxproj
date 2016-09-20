@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DAE4D111D9189B2009E8214 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE4D101D9189B2009E8214 /* ColorPickerViewController.swift */; };
+		8DAE4D131D9189B8009E8214 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DAE4D121D9189B8009E8214 /* Colors.plist */; };
+		8DAE4D151D91BFCE009E8214 /* WidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAE4D141D91BFCE009E8214 /* WidthViewController.swift */; };
 		8DC365801D90686B00D6FB14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3657F1D90686B00D6FB14 /* AppDelegate.swift */; };
-		8DC365821D90686B00D6FB14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC365811D90686B00D6FB14 /* ViewController.swift */; };
 		8DC365851D90686B00D6FB14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC365831D90686B00D6FB14 /* Main.storyboard */; };
 		8DC365871D90686B00D6FB14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DC365861D90686B00D6FB14 /* Assets.xcassets */; };
 		8DC3658A1D90686B00D6FB14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC365881D90686B00D6FB14 /* LaunchScreen.storyboard */; };
 		8DC365951D90686B00D6FB14 /* PaintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC365941D90686B00D6FB14 /* PaintTests.swift */; };
 		8DC365A01D90686B00D6FB14 /* PaintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3659F1D90686B00D6FB14 /* PaintUITests.swift */; };
+		8DC365AE1D906D2000D6FB14 /* PaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC365AD1D906D2000D6FB14 /* PaintViewModel.swift */; };
+		8DC365B01D906E2200D6FB14 /* PaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC365AF1D906E2200D6FB14 /* PaintViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8DAE4D101D9189B2009E8214 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		8DAE4D121D9189B8009E8214 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
+		8DAE4D141D91BFCE009E8214 /* WidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidthViewController.swift; sourceTree = "<group>"; };
 		8DC3657C1D90686B00D6FB14 /* Paint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC3657F1D90686B00D6FB14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8DC365811D90686B00D6FB14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8DC365841D90686B00D6FB14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DC365861D90686B00D6FB14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DC365891D90686B00D6FB14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +53,8 @@
 		8DC3659B1D90686B00D6FB14 /* PaintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC3659F1D90686B00D6FB14 /* PaintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintUITests.swift; sourceTree = "<group>"; };
 		8DC365A11D90686B00D6FB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC365AD1D906D2000D6FB14 /* PaintViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintViewModel.swift; sourceTree = "<group>"; };
+		8DC365AF1D906E2200D6FB14 /* PaintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +106,15 @@
 			isa = PBXGroup;
 			children = (
 				8DC3657F1D90686B00D6FB14 /* AppDelegate.swift */,
-				8DC365811D90686B00D6FB14 /* ViewController.swift */,
+				8DC365AF1D906E2200D6FB14 /* PaintViewController.swift */,
+				8DAE4D141D91BFCE009E8214 /* WidthViewController.swift */,
+				8DC365AD1D906D2000D6FB14 /* PaintViewModel.swift */,
 				8DC365831D90686B00D6FB14 /* Main.storyboard */,
 				8DC365861D90686B00D6FB14 /* Assets.xcassets */,
+				8DAE4D101D9189B2009E8214 /* ColorPickerViewController.swift */,
 				8DC365881D90686B00D6FB14 /* LaunchScreen.storyboard */,
 				8DC3658B1D90686B00D6FB14 /* Info.plist */,
+				8DAE4D121D9189B8009E8214 /* Colors.plist */,
 			);
 			path = Paint;
 			sourceTree = "<group>";
@@ -235,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DAE4D131D9189B8009E8214 /* Colors.plist in Resources */,
 				8DC3658A1D90686B00D6FB14 /* LaunchScreen.storyboard in Resources */,
 				8DC365871D90686B00D6FB14 /* Assets.xcassets in Resources */,
 				8DC365851D90686B00D6FB14 /* Main.storyboard in Resources */,
@@ -262,7 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DC365821D90686B00D6FB14 /* ViewController.swift in Sources */,
+				8DC365AE1D906D2000D6FB14 /* PaintViewModel.swift in Sources */,
+				8DC365B01D906E2200D6FB14 /* PaintViewController.swift in Sources */,
+				8DAE4D111D9189B2009E8214 /* ColorPickerViewController.swift in Sources */,
+				8DAE4D151D91BFCE009E8214 /* WidthViewController.swift in Sources */,
 				8DC365801D90686B00D6FB14 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +530,7 @@
 				8DC365A61D90686B00D6FB14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DC365A71D90686B00D6FB14 /* Build configuration list for PBXNativeTarget "PaintTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +539,7 @@
 				8DC365A91D90686B00D6FB14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8DC365AA1D90686B00D6FB14 /* Build configuration list for PBXNativeTarget "PaintUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +548,7 @@
 				8DC365AC1D90686B00D6FB14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
