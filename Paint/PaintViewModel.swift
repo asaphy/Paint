@@ -17,11 +17,10 @@ class PaintViewModel{
     var swiped = false
     let brushWidths = [4, 8, 16, 32]
 
-    func drawLine(fromPoint: CGPoint, toPoint: CGPoint, tempImage: UIImageView, view: UIView){
-        // drawing on tempImageView
+    func drawLine(fromPoint: CGPoint, toPoint: CGPoint, mainImage: UIImageView, view: UIView){
         UIGraphicsBeginImageContext(view.frame.size)
         if let context = UIGraphicsGetCurrentContext() {
-            tempImage.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+            mainImage.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
             // draws line from last point to current point
             context.move(to: fromPoint)
             context.addLine(to: toPoint)
@@ -34,9 +33,9 @@ class PaintViewModel{
             // draw the path
             context.strokePath()
             
-            // wrap up the drawing context to render the new line into the temporary image view
-            tempImage.image = UIGraphicsGetImageFromCurrentImageContext()
-            tempImage.alpha = opacity
+            // wrap up the drawing context to render the new line
+            mainImage.image = UIGraphicsGetImageFromCurrentImageContext()
+            mainImage.alpha = opacity
             UIGraphicsEndImageContext()
         }
     }
@@ -49,31 +48,22 @@ class PaintViewModel{
         }
     }
     
-    func touchMoved(touch: Set<UITouch>, tempImage: UIImageView, view: UIView, event: UIEvent?) {
+    func touchMoved(touch: Set<UITouch>, mainImage: UIImageView, view: UIView, event: UIEvent?) {
         swiped = true
         if let touch = touch.first {
             let currentPoint = touch.location(in: view)
-            drawLine(fromPoint: lastPoint, toPoint: currentPoint, tempImage: tempImage, view: view)
+            drawLine(fromPoint: lastPoint, toPoint: currentPoint, mainImage: mainImage, view: view)
             
             // update the lastPoint so the next touch event will continue where you just left off.
             lastPoint = currentPoint
         }
     }
     
-    func touchEnded(touch: Set<UITouch>, tempImage: UIImageView, mainImage: UIImageView, view: UIView, event: UIEvent?) {
+    func touchEnded(touch: Set<UITouch>, mainImage: UIImageView, view: UIView, event: UIEvent?) {
         if !swiped {
             // draw a single point
-            drawLine(fromPoint: lastPoint, toPoint: lastPoint, tempImage: tempImage, view: view)
+            drawLine(fromPoint: lastPoint, toPoint: lastPoint, mainImage: mainImage, view: view)
         }
-        
-        // Merge tempImageView into mainImageView
-        UIGraphicsBeginImageContext(mainImage.frame.size)
-        mainImage.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .normal, alpha: 1.0)
-        tempImage.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .normal, alpha: opacity)
-        mainImage.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        tempImage.image = nil
     }
     
     

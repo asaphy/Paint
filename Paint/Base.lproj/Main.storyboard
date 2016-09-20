@@ -20,7 +20,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wyR-CG-FDM"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dsb-FJ-2H8"/>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFy-QB-E5i">
                                 <frame key="frameInset" minX="74" minY="597" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,11 +50,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="wyR-CG-FDM" secondAttribute="trailing" constant="-16" id="5eJ-Ff-8T5"/>
-                            <constraint firstItem="dsb-FJ-2H8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="721-9N-gBu"/>
-                            <constraint firstItem="dsb-FJ-2H8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="JBY-x0-mvo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dsb-FJ-2H8" secondAttribute="trailing" constant="-16" id="Sns-I8-5AG"/>
                             <constraint firstItem="wyR-CG-FDM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="UIC-HP-TIT"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dsb-FJ-2H8" secondAttribute="bottom" id="aWT-mj-gVG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wyR-CG-FDM" secondAttribute="bottom" id="oTc-6E-YtX"/>
                             <constraint firstItem="wyR-CG-FDM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="y7x-bp-wTu"/>
                         </constraints>
@@ -64,7 +59,6 @@
                         <outlet property="changeColorButton" destination="xuq-rj-F8m" id="zfc-cz-Gtn"/>
                         <outlet property="changeWidthButton" destination="PFy-QB-E5i" id="Wlz-AU-7Nu"/>
                         <outlet property="mainImageView" destination="wyR-CG-FDM" id="uSm-OM-81l"/>
-                        <outlet property="tempImageView" destination="dsb-FJ-2H8" id="xJN-Jc-dRP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

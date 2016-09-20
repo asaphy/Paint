@@ -10,7 +10,6 @@ import UIKit
 
 class PaintViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, WidthPickerDelegate {
     @IBOutlet weak var mainImageView: UIImageView!
-    @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet var changeColorButton: UIButton!
     @IBOutlet weak var changeWidthButton: UIButton!
     
@@ -37,15 +36,15 @@ class PaintViewController: UIViewController, UIPopoverPresentationControllerDele
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        paintVM.touchMoved(touch: touches, tempImage: self.tempImageView, view: self.view, event: event)
+        paintVM.touchMoved(touch: touches, mainImage: self.mainImageView, view: self.view, event: event)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        paintVM.touchEnded(touch: touches, tempImage: self.tempImageView, mainImage: self.mainImageView, view: self.view, event: event)
+        paintVM.touchEnded(touch: touches, mainImage: self.mainImageView, view: self.view, event: event)
     }
     
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
-        paintVM.drawLine(fromPoint: fromPoint, toPoint: toPoint, tempImage: self.tempImageView, view: self.view)
+        paintVM.drawLine(fromPoint: fromPoint, toPoint: toPoint, mainImage: self.mainImageView, view: self.view)
     }
     
     // MARK: Popover delegate functions
