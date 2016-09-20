@@ -74,7 +74,7 @@
         <!--Color Picker View Controller-->
         <scene sceneID="Jx7-QY-8Ww">
             <objects>
-                <viewController storyboardIdentifier="sbColorPicker" id="8QU-of-wfK" customClass="ColorPickerViewController" customModule="Paint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ColorPicker" id="8QU-of-wfK" customClass="ColorPickerViewController" customModule="Paint" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RgV-Pt-AoB"/>
                         <viewControllerLayoutGuide type="bottom" id="nqN-7t-y8t"/>

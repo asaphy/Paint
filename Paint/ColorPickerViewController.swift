@@ -35,11 +35,7 @@ class ColorPickerViewController: UIViewController, UICollectionViewDataSource, U
             self.colorCollectionView.reloadData()
         }
     }
-    
-    
-    
-    
-    
+
     // MARK: - View functions
     
     // called after view loaded

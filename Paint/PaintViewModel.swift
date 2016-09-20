@@ -15,23 +15,23 @@ class PaintViewModel{
     var brushWidth: CGFloat = 10.0
     var opacity: CGFloat = 1.0
     var swiped = false
-    
+    let brushWidths = [4, 8, 16, 32]
+
     func drawLine(fromPoint: CGPoint, toPoint: CGPoint, tempImage: UIImageView, view: UIView){
         // drawing on tempImageView
         UIGraphicsBeginImageContext(view.frame.size)
         if let context = UIGraphicsGetCurrentContext() {
             tempImage.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-            
             // draws line from last point to current point
             context.move(to: fromPoint)
             context.addLine(to: toPoint)
-            // drawing parameters for brush size and opacity and brush stroke color
+            // drawing parameters
             context.setLineCap(.round)
             context.setLineWidth(brushWidth)
             context.setStrokeColor(strokeColor)
             context.setBlendMode(.normal)
             
-            // draw the path!
+            // draw the path
             context.strokePath()
             
             // wrap up the drawing context to render the new line into the temporary image view
