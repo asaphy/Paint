@@ -20,17 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wyR-CG-FDM"/>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFy-QB-E5i">
-                                <frame key="frameInset" minX="74" minY="597" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="brushIcon"/>
-                                <connections>
-                                    <action selector="changeWidthButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kyg-sk-NtZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuq-rj-F8m">
-                                <frame key="frameInset" minX="16" minY="597" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuq-rj-F8m">
                                 <state key="normal" image="colorIcon">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -38,26 +28,53 @@
                                     <action selector="changeColorButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Nm-Jk-tEv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7e-1P-iz1">
-                                <frame key="frameInset" minX="309" minY="597" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7e-1P-iz1">
                                 <state key="normal" image="clearIcon"/>
                                 <connections>
                                     <action selector="clear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LOw-X3-WJZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6j-sC-FNN">
+                                <state key="normal" image="eraserIcon"/>
+                                <connections>
+                                    <action selector="eraserButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1RF-2M-g4d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFy-QB-E5i">
+                                <state key="normal" image="brushIcon"/>
+                                <connections>
+                                    <action selector="changeWidthButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kyg-sk-NtZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3b-QD-AK2">
+                                <state key="normal" title="Export"/>
+                                <connections>
+                                    <action selector="exportClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="00C-5n-gZa"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="wyR-CG-FDM" secondAttribute="trailing" constant="-16" id="5eJ-Ff-8T5"/>
+                            <constraint firstItem="PFy-QB-E5i" firstAttribute="leading" secondItem="xuq-rj-F8m" secondAttribute="trailing" constant="8" id="8Uq-hj-9hk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h7e-1P-iz1" secondAttribute="bottom" constant="20" id="Gtt-xu-PvF"/>
+                            <constraint firstItem="h6j-sC-FNN" firstAttribute="leading" secondItem="PFy-QB-E5i" secondAttribute="trailing" constant="8" id="IZ4-3e-om3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xuq-rj-F8m" secondAttribute="bottom" constant="20" id="LxP-Z0-f4W"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="xuq-rj-F8m" secondAttribute="leading" id="Ng4-no-gJt"/>
+                            <constraint firstItem="O3b-QD-AK2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-1" id="Sjq-vn-j3J"/>
                             <constraint firstItem="wyR-CG-FDM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="UIC-HP-TIT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PFy-QB-E5i" secondAttribute="bottom" constant="20" id="lkL-WN-6zc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wyR-CG-FDM" secondAttribute="bottom" id="oTc-6E-YtX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h7e-1P-iz1" secondAttribute="trailing" id="q96-f7-Vjb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h6j-sC-FNN" secondAttribute="bottom" constant="20" id="seM-7b-0K0"/>
                             <constraint firstItem="wyR-CG-FDM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="y7x-bp-wTu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O3b-QD-AK2" secondAttribute="trailing" id="zdi-hC-NPe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="changeColorButton" destination="xuq-rj-F8m" id="zfc-cz-Gtn"/>
                         <outlet property="changeWidthButton" destination="PFy-QB-E5i" id="Wlz-AU-7Nu"/>
+                        <outlet property="eraserButton" destination="h6j-sC-FNN" id="Xyy-hM-oZO"/>
                         <outlet property="mainImageView" destination="wyR-CG-FDM" id="uSm-OM-81l"/>
                     </connections>
                 </viewController>
@@ -169,8 +186,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="brushIcon" width="100" height="100"/>
-        <image name="clearIcon" width="100" height="100"/>
-        <image name="colorIcon" width="100" height="100"/>
+        <image name="brushIcon" width="50" height="50"/>
+        <image name="clearIcon" width="50" height="50"/>
+        <image name="colorIcon" width="50" height="50"/>
+        <image name="eraserIcon" width="50" height="50"/>
     </resources>
 </document>

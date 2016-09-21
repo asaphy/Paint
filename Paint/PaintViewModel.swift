@@ -16,6 +16,7 @@ class PaintViewModel{
     var opacity: CGFloat = 1.0
     var swiped = false
     let brushWidths = [4, 8, 16, 32]
+    var eraserSelected = false
 
     func drawLine(fromPoint: CGPoint, toPoint: CGPoint, mainImage: UIImageView, view: UIView){
         UIGraphicsBeginImageContext(view.frame.size)
@@ -27,7 +28,11 @@ class PaintViewModel{
             // drawing parameters
             context.setLineCap(.round)
             context.setLineWidth(brushWidth)
-            context.setStrokeColor(strokeColor)
+            if eraserSelected {
+                context.setStrokeColor(UIColor.white.cgColor)
+            } else {
+                context.setStrokeColor(strokeColor)
+            }
             context.setBlendMode(.normal)
             
             // draw the path
@@ -66,5 +71,9 @@ class PaintViewModel{
         }
     }
     
+    func resetEraser(view: PaintViewController) {
+        eraserSelected = false
+        view.eraserButton.setImage(#imageLiteral(resourceName: "eraserIcon"), for: UIControlState.normal)
+    }
     
 }

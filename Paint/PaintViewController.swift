@@ -9,9 +9,13 @@
 import UIKit
 
 class PaintViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, WidthPickerDelegate {
+    
+    var paintVM = PaintViewModel()
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet var changeColorButton: UIButton!
     @IBOutlet weak var changeWidthButton: UIButton!
+    @IBOutlet weak var eraserButton: UIButton!
     
     @IBAction func changeColorButtonClicked(_ sender: AnyObject) {
         self.showColorPicker()
@@ -20,12 +24,31 @@ class PaintViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBAction func changeWidthButtonClicked(_ sender: AnyObject) {
         self.showWidthPicker()
     }
-    
+
     @IBAction func clear(_ sender: AnyObject) {
         mainImageView.image = nil
     }
     
-    var paintVM = PaintViewModel()
+    @IBAction func eraserButtonSelected(_ sender: AnyObject) {
+        paintVM.eraserSelected = !paintVM.eraserSelected
+        if paintVM.eraserSelected{
+            eraserButton.setImage(#imageLiteral(resourceName: "eraserIconSelected"), for: UIControlState.normal)
+        } else {
+            eraserButton.setImage(#imageLiteral(resourceName: "eraserIcon"), for: UIControlState.normal)
+        }
+    }
+    
+    @IBAction func exportClicked(_ sender: AnyObject) {
+        UIGraphicsBeginImageContext(mainImageView.bounds.size)
+        mainImageView.image?.draw(in: CGRect(x: 0, y: 0,
+                                               width: mainImageView.frame.size.width, height: mainImageView.frame.size.height))
+        if let image = UIGraphicsGetImageFromCurrentImageContext(){
+            UIGraphicsEndImageContext()
+            let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            present(activity, animated: true, completion: nil)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +80,9 @@ class PaintViewController: UIViewController, UIPopoverPresentationControllerDele
     // called by color picker after color selected.
     func colorPickerDidColorSelected(selectedUIColor: UIColor, selectedHexColor: String) {
         paintVM.strokeColor = selectedUIColor.cgColor
+        paintVM.resetEraser(view: self)
     }
     
-    // MARK: - Utility functions
-    // show color picker from UIButton
     private func showColorPicker(){
         
         if let colorPickerVC = storyboard?.instantiateViewController(withIdentifier: "ColorPicker") as? ColorPickerViewController {
