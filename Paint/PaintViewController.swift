@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PaintViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, WidthPickerDelegate {
+final class PaintViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, WidthPickerDelegate {
     
-    var paintVM = PaintViewModel()
+    let paintVM = PaintViewModel()
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet var changeColorButton: UIButton!
@@ -49,25 +49,64 @@ class PaintViewController: UIViewController, UIPopoverPresentationControllerDele
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        let layer = CAShapeLayer()
+//        layer.path = UIBezierPath(roundedRect: CGRect(x: 64, y: 64, width: 160, height: 160), cornerRadius: 0).cgPath
+//        layer.fillColor = UIColor.red.cgColor
+//        view.layer.addSublayer(layer)
+//    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       paintVM.touchBegan(touch: touches, paintView: self.view)
+        paintVM.swiped = false
+        if let touch = touches.first {
+            // update the lastPoint so the next touch event will continue where you just left off.
+            paintVM.lastPoint = touch.location(in: view)
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        paintVM.touchMoved(touch: touches, mainImage: self.mainImageView, view: self.view, event: event)
+        paintVM.swiped = true
+        if let touch = touches.first {
+            let currentPoint = touch.location(in: view)
+            drawLineFrom(fromPoint: paintVM.lastPoint, toPoint: currentPoint)
+            
+            // update the lastPoint so the next touch event will continue where you just left off.
+            paintVM.lastPoint = currentPoint
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        paintVM.touchEnded(touch: touches, mainImage: self.mainImageView, view: self.view, event: event)
+        if !paintVM.swiped {
+            // draw a single point
+            drawLineFrom(fromPoint: paintVM.lastPoint, toPoint: paintVM.lastPoint)
+        }
     }
     
-    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
-        paintVM.drawLine(fromPoint: fromPoint, toPoint: toPoint, mainImage: self.mainImageView, view: self.view)
+    private func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        if let context = UIGraphicsGetCurrentContext() {
+            mainImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+            // draws line from last point to current point
+            context.move(to: fromPoint)
+            context.addLine(to: toPoint)
+            // drawing parameters
+            context.setLineCap(.round)
+            context.setLineWidth(paintVM.brushWidth)
+            if paintVM.eraserSelected {
+                context.setStrokeColor(UIColor.white.cgColor)
+            } else {
+                context.setStrokeColor(paintVM.strokeColor)
+            }
+            context.setBlendMode(.normal)
+            
+            // draw the path
+            context.strokePath()
+            
+            // wrap up the drawing context to render the new line
+            mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+        }
     }
     
     // MARK: Popover delegate functions
@@ -80,7 +119,7 @@ class PaintViewController: UIViewController, UIPopoverPresentationControllerDele
     // called by color picker after color selected.
     func colorPickerDidColorSelected(selectedUIColor: UIColor, selectedHexColor: String) {
         paintVM.strokeColor = selectedUIColor.cgColor
-        paintVM.resetEraser(view: self)
+        resetEraser()
     }
     
     private func showColorPicker(){
@@ -126,5 +165,10 @@ class PaintViewController: UIViewController, UIPopoverPresentationControllerDele
             
             present(widthPickerVC, animated: true, completion: nil)
         }
+    }
+    
+    private func resetEraser() {
+        paintVM.eraserSelected = false
+        eraserButton.setImage(#imageLiteral(resourceName: "eraserIcon"), for: UIControlState.normal)
     }
 }

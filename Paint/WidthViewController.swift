@@ -9,7 +9,7 @@
 import UIKit
 
 // define delegate protocol function
-protocol WidthPickerDelegate {
+protocol WidthPickerDelegate: class {
     // return selected width as Int
     func widthSelected(selectedWidth: Int)
 }
@@ -17,7 +17,7 @@ protocol WidthPickerDelegate {
 class WidthViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     @IBOutlet weak var widthCollectionView: UICollectionView!
     var paintVM: PaintViewModel!
-    var widthPickerDelegate : WidthPickerDelegate?
+    weak var widthPickerDelegate : WidthPickerDelegate?
     var heightOffset = 10
     
     override func viewDidLoad() {
@@ -40,7 +40,11 @@ class WidthViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WidthCell", for: indexPath as IndexPath)
-        cell.frame = CGRect(x: Int(view.frame.size.width/2)-paintVM.brushWidths[indexPath.row], y: heightOffset, width: paintVM.brushWidths[indexPath.row]*2, height: paintVM.brushWidths[indexPath.row]*2)
+        let xValue = Int(view.frame.size.width/2)-paintVM.brushWidths[indexPath.row]
+        let widthValue = paintVM.brushWidths[indexPath.row]*2
+        let heightValue = paintVM.brushWidths[indexPath.row]*2
+        
+        cell.frame = CGRect(x: xValue, y: heightOffset, width: widthValue, height: heightValue)
         cell.layer.cornerRadius = CGFloat(paintVM.brushWidths[indexPath.row])
         cell.layer.backgroundColor = paintVM.strokeColor
         heightOffset += paintVM.brushWidths[indexPath.row]*2 + 10
