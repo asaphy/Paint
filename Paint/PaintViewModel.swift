@@ -9,15 +9,20 @@
 import Foundation
 import UIKit
 
+// Try to think of a VM an encapsulation of all the unit testable parts of your code
+// there are many parts of your current VM that cannot be unit tested because they are UI related
 class PaintViewModel{
     var lastPoint = CGPoint.zero
     var strokeColor = UIColor.black.cgColor
+    // this isn't initialized to one of the values in your array
     var brushWidth: CGFloat = 10.0
+    // what are you doing with opacity?
     var opacity: CGFloat = 1.0
     var swiped = false
     let brushWidths = [4, 8, 16, 32]
     var eraserSelected = false
-
+    
+    // drawLine only does UI work, and does not belong in the VM
     func drawLine(fromPoint: CGPoint, toPoint: CGPoint, mainImage: UIImageView, view: UIView){
         UIGraphicsBeginImageContext(view.frame.size)
         if let context = UIGraphicsGetCurrentContext() {
@@ -73,6 +78,7 @@ class PaintViewModel{
     
     func resetEraser(view: PaintViewController) {
         eraserSelected = false
+        // don't do UI work in your VM
         view.eraserButton.setImage(#imageLiteral(resourceName: "eraserIcon"), for: UIControlState.normal)
     }
     

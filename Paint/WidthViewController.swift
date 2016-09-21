@@ -17,6 +17,7 @@ protocol WidthPickerDelegate {
 class WidthViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     @IBOutlet weak var widthCollectionView: UICollectionView!
     var paintVM: PaintViewModel!
+    // this creates a retain cycle, make your delegates weak
     var widthPickerDelegate : WidthPickerDelegate?
     var heightOffset = 10
     
@@ -40,6 +41,7 @@ class WidthViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WidthCell", for: indexPath as IndexPath)
+        // this line is way too complex, break it out to make it more readable
         cell.frame = CGRect(x: Int(view.frame.size.width/2)-paintVM.brushWidths[indexPath.row], y: heightOffset, width: paintVM.brushWidths[indexPath.row]*2, height: paintVM.brushWidths[indexPath.row]*2)
         cell.layer.cornerRadius = CGFloat(paintVM.brushWidths[indexPath.row])
         cell.layer.backgroundColor = paintVM.strokeColor
