@@ -8,8 +8,10 @@
 
 import UIKit
 
+// mark your classes final unless you plan to subclass them
 class PaintViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, WidthPickerDelegate {
     
+    // make paintVM a constant unless you need to change its value
     var paintVM = PaintViewModel()
     
     @IBOutlet weak var mainImageView: UIImageView!
@@ -49,24 +51,28 @@ class PaintViewController: UIViewController, UIPopoverPresentationControllerDele
         }
     }
     
-    
+    // remove viewDidLoad unless you need to add to it
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // self is implicit
        paintVM.touchBegan(touch: touches, paintView: self.view)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // self
         paintVM.touchMoved(touch: touches, mainImage: self.mainImageView, view: self.view, event: event)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // self
         paintVM.touchEnded(touch: touches, mainImage: self.mainImageView, view: self.view, event: event)
     }
     
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+        // self
         paintVM.drawLine(fromPoint: fromPoint, toPoint: toPoint, mainImage: self.mainImageView, view: self.view)
     }
     
