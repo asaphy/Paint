@@ -18,6 +18,7 @@
 		8DC365A01D90686B00D6FB14 /* PaintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC3659F1D90686B00D6FB14 /* PaintUITests.swift */; };
 		8DC365AE1D906D2000D6FB14 /* PaintViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC365AD1D906D2000D6FB14 /* PaintViewModel.swift */; };
 		8DC365B01D906E2200D6FB14 /* PaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC365AF1D906E2200D6FB14 /* PaintViewController.swift */; };
+		8DEA22D61D93204D00F0ABE2 /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA22D51D93204D00F0ABE2 /* ColorViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8DC365A11D90686B00D6FB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC365AD1D906D2000D6FB14 /* PaintViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintViewModel.swift; sourceTree = "<group>"; };
 		8DC365AF1D906E2200D6FB14 /* PaintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintViewController.swift; sourceTree = "<group>"; };
+		8DEA22D51D93204D00F0ABE2 /* ColorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				8DC365831D90686B00D6FB14 /* Main.storyboard */,
 				8DC365861D90686B00D6FB14 /* Assets.xcassets */,
 				8DAE4D101D9189B2009E8214 /* ColorPickerViewController.swift */,
+				8DEA22D51D93204D00F0ABE2 /* ColorViewModel.swift */,
 				8DC365881D90686B00D6FB14 /* LaunchScreen.storyboard */,
 				8DC3658B1D90686B00D6FB14 /* Info.plist */,
 				8DAE4D121D9189B8009E8214 /* Colors.plist */,
@@ -277,6 +280,7 @@
 			files = (
 				8DC365AE1D906D2000D6FB14 /* PaintViewModel.swift in Sources */,
 				8DC365B01D906E2200D6FB14 /* PaintViewController.swift in Sources */,
+				8DEA22D61D93204D00F0ABE2 /* ColorViewModel.swift in Sources */,
 				8DAE4D111D9189B2009E8214 /* ColorPickerViewController.swift in Sources */,
 				8DAE4D151D91BFCE009E8214 /* WidthViewController.swift in Sources */,
 				8DC365801D90686B00D6FB14 /* AppDelegate.swift in Sources */,

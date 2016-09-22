@@ -19,7 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wyR-CG-FDM"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wyR-CG-FDM">
+                                <frame key="frameInset" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuq-rj-F8m">
                                 <state key="normal" image="colorIcon">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -55,19 +58,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="wyR-CG-FDM" secondAttribute="trailing" constant="-16" id="5eJ-Ff-8T5"/>
                             <constraint firstItem="PFy-QB-E5i" firstAttribute="leading" secondItem="xuq-rj-F8m" secondAttribute="trailing" constant="8" id="8Uq-hj-9hk"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h7e-1P-iz1" secondAttribute="bottom" constant="20" id="Gtt-xu-PvF"/>
                             <constraint firstItem="h6j-sC-FNN" firstAttribute="leading" secondItem="PFy-QB-E5i" secondAttribute="trailing" constant="8" id="IZ4-3e-om3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xuq-rj-F8m" secondAttribute="bottom" constant="20" id="LxP-Z0-f4W"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xuq-rj-F8m" secondAttribute="leading" id="Ng4-no-gJt"/>
                             <constraint firstItem="O3b-QD-AK2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-1" id="Sjq-vn-j3J"/>
-                            <constraint firstItem="wyR-CG-FDM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="UIC-HP-TIT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PFy-QB-E5i" secondAttribute="bottom" constant="20" id="lkL-WN-6zc"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wyR-CG-FDM" secondAttribute="bottom" id="oTc-6E-YtX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h7e-1P-iz1" secondAttribute="trailing" id="q96-f7-Vjb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h6j-sC-FNN" secondAttribute="bottom" constant="20" id="seM-7b-0K0"/>
-                            <constraint firstItem="wyR-CG-FDM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="y7x-bp-wTu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O3b-QD-AK2" secondAttribute="trailing" id="zdi-hC-NPe"/>
                         </constraints>
                     </view>
@@ -75,12 +74,12 @@
                         <outlet property="changeColorButton" destination="xuq-rj-F8m" id="zfc-cz-Gtn"/>
                         <outlet property="changeWidthButton" destination="PFy-QB-E5i" id="Wlz-AU-7Nu"/>
                         <outlet property="eraserButton" destination="h6j-sC-FNN" id="Xyy-hM-oZO"/>
-                        <outlet property="mainImageView" destination="wyR-CG-FDM" id="uSm-OM-81l"/>
+                        <outlet property="mainImageView" destination="wyR-CG-FDM" id="pwZ-S5-ek4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="375" y="-220"/>
+            <point key="canvasLocation" x="373.60000000000002" y="-220.83958020989508"/>
         </scene>
         <!--Color Picker View Controller-->
         <scene sceneID="Jx7-QY-8Ww">

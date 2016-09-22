@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PaintViewModel{
+struct PaintViewModel{
     var lastPoint = CGPoint.zero
     var strokeColor = UIColor.black.cgColor
     var brushWidth: CGFloat = 10.0

@@ -22,8 +22,8 @@ class WidthViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.widthCollectionView.delegate = self
-        self.widthCollectionView.dataSource = self
+        widthCollectionView.delegate = self
+        widthCollectionView.dataSource = self
     }
     
     // return number of section in collection view
@@ -53,12 +53,12 @@ class WidthViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     // function - called when clicked on a collection view cell
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.widthPickerDelegate?.widthSelected(selectedWidth: paintVM.brushWidths[indexPath.row])
-        self.closeWidthPicker()
+        widthPickerDelegate?.widthSelected(selectedWidth: paintVM.brushWidths[indexPath.row])
+        closeWidthPicker()
     }
     
     // close color picker view controller
     private func closeWidthPicker(){
-        self.dismiss(animated: false, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
 }

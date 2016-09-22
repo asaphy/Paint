@@ -10,19 +10,20 @@ import UIKit
 
 final class PaintViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, WidthPickerDelegate {
     
-    let paintVM = PaintViewModel()
-    
+    var paintVM = PaintViewModel()
+
     @IBOutlet weak var mainImageView: UIImageView!
+
     @IBOutlet var changeColorButton: UIButton!
     @IBOutlet weak var changeWidthButton: UIButton!
     @IBOutlet weak var eraserButton: UIButton!
     
     @IBAction func changeColorButtonClicked(_ sender: AnyObject) {
-        self.showColorPicker()
+        showColorPicker()
     }
 
     @IBAction func changeWidthButtonClicked(_ sender: AnyObject) {
-        self.showWidthPicker()
+        showWidthPicker()
     }
 
     @IBAction func clear(_ sender: AnyObject) {
@@ -49,13 +50,13 @@ final class PaintViewController: UIViewController, UIPopoverPresentationControll
         }
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 //        let layer = CAShapeLayer()
 //        layer.path = UIBezierPath(roundedRect: CGRect(x: 64, y: 64, width: 160, height: 160), cornerRadius: 0).cgPath
 //        layer.fillColor = UIColor.red.cgColor
 //        view.layer.addSublayer(layer)
-//    }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         paintVM.swiped = false
@@ -86,10 +87,13 @@ final class PaintViewController: UIViewController, UIPopoverPresentationControll
     private func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
         UIGraphicsBeginImageContext(view.frame.size)
         if let context = UIGraphicsGetCurrentContext() {
+            
             mainImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+            
             // draws line from last point to current point
             context.move(to: fromPoint)
             context.addLine(to: toPoint)
+            
             // drawing parameters
             context.setLineCap(.round)
             context.setLineWidth(paintVM.brushWidth)
@@ -110,13 +114,12 @@ final class PaintViewController: UIViewController, UIPopoverPresentationControll
     }
     
     // MARK: Popover delegate functions
-    // Override iPhone behavior that presents a popover as fullscreen.
+    // Override default iPhone behavior that presents a popover as fullscreen.
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
     }
     
-    // MARK: Color picker delegate functions
-    // called by color picker after color selected.
+    // MARK: - ColorPickerDelegate
     func colorPickerDidColorSelected(selectedUIColor: UIColor, selectedHexColor: String) {
         paintVM.strokeColor = selectedUIColor.cgColor
         resetEraser()
@@ -131,8 +134,8 @@ final class PaintViewController: UIViewController, UIPopoverPresentationControll
             
             if let popoverController = colorPickerVC.popoverPresentationController {
                 
-                popoverController.sourceView = self.view
-                popoverController.sourceRect = self.changeColorButton.frame
+                popoverController.sourceView = view
+                popoverController.sourceRect = changeColorButton.frame
                 popoverController.permittedArrowDirections = UIPopoverArrowDirection.any
                 popoverController.delegate = self
             }
@@ -141,8 +144,7 @@ final class PaintViewController: UIViewController, UIPopoverPresentationControll
         }
     }
     
-    // MARK: Width picker delegate functions
-    // called by Width picker after Width selected.
+    // MARK: - WidthPickerDelegate
     func widthSelected(selectedWidth: Int) {
         paintVM.brushWidth = CGFloat(selectedWidth)
     }
@@ -157,8 +159,8 @@ final class PaintViewController: UIViewController, UIPopoverPresentationControll
             
             if let popoverController = widthPickerVC.popoverPresentationController {
                 
-                popoverController.sourceView = self.view
-                popoverController.sourceRect = self.changeWidthButton.frame
+                popoverController.sourceView = view
+                popoverController.sourceRect = changeWidthButton.frame
                 popoverController.permittedArrowDirections = UIPopoverArrowDirection.any
                 popoverController.delegate = self
             }
